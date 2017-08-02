@@ -33,6 +33,8 @@ final case class Cat(
                       age: Int,
                       color: String
                     )
+import java.util.Date
+
 import PrintableInstances._
 import PrintableSyntax.PrintOps
 object test extends App{
@@ -41,5 +43,6 @@ object test extends App{
   1.printInsanity
   print(Cat("Colm" , 2 ,"Red"))
   PrintableSyntax.PrintOps(print(Cat("Luke",35,"white")))
+  print(new Date())
   print(1)
 }
