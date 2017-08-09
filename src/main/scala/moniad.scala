@@ -25,9 +25,14 @@ object monoidBooleanInstances {
 
     override def combine(x: Boolean, y: Boolean): Boolean = x || y
   }
+
+  implicit val eitherBoolean  = new Monoid[Boolean] {
+    override def empty: Boolean = false
+    override def combine(x: Boolean, y: Boolean): Boolean = (x && !y) || (!x && y)
+  }
 }
 
-import monoidBooleanInstances.monoidAndBoolean
+import monoidBooleanInstances.eitherBoolean
 object moniad extends App{
   def associativeLaw[A](x: A, y: A, z: A)
                        (implicit m: Monoid[A]): Boolean =
@@ -39,5 +44,5 @@ object moniad extends App{
     (m.combine(x, m.empty) == x) && (m.combine(m.empty, x) == x)
   }
   println(associativeLaw(false,false,true))
-  println(identityLaw(true))
+  println(identityLaw(false))
 }
