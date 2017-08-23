@@ -10,7 +10,7 @@ case class Order(totalCost: Double, quantity: Double)
    implicit val orderMonaid = new Monoid[Order] {
      override def empty: Order = Order(0,0)
 
-     override def combine(x: Order, y: Order): Order = Order( (x.quantity * x.totalCost) + (y.quantity * y.totalCost) ,x.quantity + y.quantity)
+     override def combine(x: Order, y: Order): Order = Order(x.totalCost * x.totalCost ,x.quantity + y.quantity)
    }
  }
  import OrderMoniad.orderMonaid
@@ -44,7 +44,7 @@ object CatsMoniad extends App{
   println(addGeneric(lista))
   val order = Order(15,20)
   val listOrder = List(order,order)
-  println(addGeneric(order)(OrderMoniad.orderMonaid))
+ // println(addGeneric(listOrder)(OrderMoniad.orderMonaid))
  // println(addTypeBounds(listb))
  // println(addTypeBounds(lista))
 }
