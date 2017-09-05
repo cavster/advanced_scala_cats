@@ -24,11 +24,6 @@ object Funtor2 extends App{
       def format(value: Boolean): String =
         if(value) "yes" else "no"
     }
-  //PrintOps[A](value: A)
-  implicit val boxPrintable =
-    new Printable2[Box[_]] {
-      def format[A](value: A): String = value.toString
-    }
   println(format("hello"))
   // res4: String = "hello"
   println(format(true))
