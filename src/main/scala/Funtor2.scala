@@ -1,7 +1,7 @@
 /**
   * Created by colm on 22/08/17.
   */
-
+/*
 trait Printable2[A] {
   def format(value: A): String
   def contramap[B](func: B => A): Printable2[B] =
@@ -31,3 +31,4 @@ object Funtor2 extends App{
   println(format(testBOx))
 
 }
+*/

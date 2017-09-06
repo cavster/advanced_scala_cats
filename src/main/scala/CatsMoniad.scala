@@ -13,7 +13,6 @@ case class Order(totalCost: Double, quantity: Double)
      override def combine(x: Order, y: Order): Order = Order(x.totalCost * x.totalCost ,x.quantity + y.quantity)
    }
  }
- import OrderMoniad.orderMonaid
 object CatsMoniad extends App{
   def addOption(items: List[Option[Int]]): Option[Int] = {
     items.foldLeft(cats.Monoid[Option[Int]].empty)(_ |+| _)}
